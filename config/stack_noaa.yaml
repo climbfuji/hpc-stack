@@ -2,6 +2,11 @@ cmake:
   build: NO
   version: 3.17.2
 
+mpi:
+  build: YES
+  flavor: mpich
+  version: 3.3.2
+
 jpeg:
   build: NO
   version: 9.1.0
