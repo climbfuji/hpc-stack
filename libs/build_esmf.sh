@@ -96,9 +96,6 @@ case $COMPILER in
     ;;
 esac
 
-#  mpiexec --version | grep OpenRTE 2> /dev/null && export ESMF_COMM=openmpi
-#  mpiexec --version | grep Intel   2> /dev/null && export ESMF_COMM=intelmpi
-export ESMF_MPIRUN=mpiexec
 case $MPI in
   openmpi )
     export ESMF_COMM="openmpi"
@@ -107,19 +104,16 @@ case $MPI in
     export ESMF_COMM="mpich3"
     ;;
   cray-mpich )
-    export ESMF_COMM="mpi"
-    export ESMF_MPIRUN="${ESMF_DIR}/scripts/mpirun.srun"
+    export ESMF_COMM="mpich"
     ;;
   impi )
     export ESMF_COMM="intelmpi"
     ;;
   mpt )
     export ESMF_COMM="mpt"
-    export ESMF_MPIRUN=mpiexec_mpt
     ;;
   * )
     export ESMF_COMM="mpiuni"
-    export ESMF_MPIRUN=""
     ;;
 esac
 
